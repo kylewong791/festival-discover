@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>festival.discover</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+  <header>
+    <span class="logo">festival.discover</span>
+    <span class="powered-by">Powered by Last.fm</span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Artist Discovery</p>
+      <h1>Find your festival matches</h1>
+      <p class="description">Enter a festival and an artist you love. We'll find who else on the lineup you'll probably enjoy, ranked by musical similarity.</p>
+    </section>
+
+    <section class="inputs">
+      <input
+        id="festival-input"
+        type="text"
+        placeholder="e.g. Glastonbury Festival 2024"
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <input
+        id="artist-input"
+        type="text"
+        placeholder="e.g. Four Tet"
+        autocomplete="off"
+        spellcheck="false"
+      />
+      <p class="validation-msg" id="validation-msg"></p>
+      <button id="discover-btn" onclick="discover()">Discover artists</button>
+    </section>
+
+    <hr />
+
+    <section class="results" id="results-section">
+
+      <div class="empty-state" id="empty-state">
+        <svg class="empty-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+        <p class="empty-title">Enter a festival and an artist to get started</p>
+        <p class="empty-subtitle">We'll find who on the lineup you'll probably enjoy.</p>
+      </div>
+
+      <div class="loading-state hidden" id="loading-state">
+        <div class="spinner"></div>
+        <p class="loading-text">Searching the lineup…</p>
+      </div>
+
+      <div class="results-content hidden" id="results-content">
+        <div class="seed-pill" id="seed-pill">
+          <span class="seed-dot"></span>
+          <span id="seed-label"></span>
+        </div>
+        <div class="results-header">
+          <span id="results-summary"></span>
+        </div>
+        <div class="results-grid" id="results-grid"></div>
+      </div>
+
+      <div class="no-results hidden" id="no-results">
+        <p class="no-results-title">No matches found.</p>
+        <p class="no-results-sub">Try a different artist or festival. More mainstream seed artists tend to produce better results.</p>
+      </div>
+
+      <div class="error-state hidden" id="error-state">
+        <p class="error-text">Something went wrong. Please try again.</p>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    <span>Built by Kyle Wong</span>
+    <span>Data from Last.fm &amp; Wikipedia</span>
+  </footer>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:5001';
+const API_BASE = 'https://festival-discover.onrender.com';
 
 const btn        = document.getElementById('discover-btn');
 const festivalEl = document.getElementById('festival-input');
